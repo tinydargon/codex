@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101713">
+  <title>贪吃蛇 · Snake</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="game.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <a class="brand" href="./index.html" aria-label="贪吃蛇首页"><span class="brand-mark" aria-hidden="true">S</span> LITTLE GAMES</a>
+      <span class="edition">01 / 经典街机</span>
+    </header>
+    <section class="intro">
+      <div><p class="eyebrow"><span></span> 再来一局，快乐很简单</p><h1>贪吃蛇<span class="title-dot">.</span></h1></div>
+      <p class="intro-note">吃掉小点，长大一点。<br>找回小时候的手感。</p>
+    </section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="游戏区域">
+        <div class="board-top"><span><i class="status-light"></i><span id="status-label">准备就绪</span></span><span>20 × 20</span></div>
+        <div class="board-wrap">
+          <canvas id="board" width="600" height="600" tabindex="0" aria-label="贪吃蛇棋盘，用方向键或 WASD 移动">你的浏览器需要支持 Canvas 才能运行游戏。</canvas>
+          <div class="overlay" id="overlay">
+            <div class="overlay-card"><span class="overlay-icon" aria-hidden="true">↗</span><h2 id="overlay-title">准备好了吗？</h2><p id="overlay-description">一颗小点，一场新的冒险。</p><button class="primary" id="play-button">开始游戏 <span aria-hidden="true">→</span></button><span class="overlay-hint" id="overlay-hint">也可以按空格开始</span></div>
+          </div>
+        </div>
+        <div class="board-bottom"><span><span class="food-dot"></span> 吃一颗 · 得 10 分</span><span>保持专注，别碰边界</span></div>
+      </section>
+      <aside class="sidebar">
+        <div class="score-card"><p class="card-label">本局得分 <span aria-hidden="true">↗</span></p><p class="score" id="score">0</p><div class="best-row"><span>个人最高纪录</span><strong id="best">0</strong></div></div>
+        <div class="controls-card">
+          <p class="card-label">你的节奏</p>
+          <label class="sr-only" for="speed">游戏速度</label>
+          <select id="speed">
+            <option value="easy">慢慢来</option>
+            <option value="normal" selected>刚刚好</option>
+            <option value="fast">挑战一下</option>
+          </select>
+          <p class="speed-note">新一局生效 · 吃得越多，速度越快</p>
+          <div class="action-row"><button id="pause-button" class="secondary" disabled>暂停 <kbd>空格</kbd></button><button id="restart-button" class="icon-button" aria-label="重新开始" title="重新开始">↻</button></div>
+        </div>
+        <div class="how-to"><p class="card-label">小小操作指南</p><div class="instruction"><span class="key-group"><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></span><span>控制方向</span></div><div class="instruction"><span class="key-group"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>也可以用</span></div><p>撞墙或碰到自己，就结束啦。<br>放轻松，随时都能重新开始。</p></div>
+        <div class="touch-controls" aria-label="触屏方向控制"><button data-direction="up" aria-label="向上">↑</button><button data-direction="left" aria-label="向左">←</button><button data-direction="down" aria-label="向下">↓</button><button data-direction="right" aria-label="向右">→</button></div>
+      </aside>
+    </div>
+    <footer><span>少一点复杂，多一点快乐。</span><span>SNAKE / PLAY FOR FUN</span></footer>
+    <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>
